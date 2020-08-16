@@ -8,9 +8,7 @@ Widget::Widget(QWidget *parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    ui->pbCoffee->setEnabled(false);
-    ui->pbTea->setEnabled(false);
-    ui->pbMilk->setEnabled(false);
+    changeMoney();
 }
 
 Widget::~Widget()
