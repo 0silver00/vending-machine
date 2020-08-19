@@ -19,24 +19,12 @@ Widget::~Widget()
 void Widget::changeMoney(int coin)
 {
     money += coin;
-    if(money >= 200){
-        ui->pbCoffee->setEnabled(true);
-        ui->pbTea->setEnabled(true);
-        ui->pbMilk->setEnabled(true);
-    }else if(money >= 150){
-        ui->pbCoffee->setEnabled(true);
-        ui->pbTea->setEnabled(true);
-        ui->pbMilk->setEnabled(false);
-    }else if (money >= 100){
-        ui->pbCoffee->setEnabled(true);
-        ui->pbTea->setEnabled(false);
-        ui->pbMilk->setEnabled(false);
-    }else{
-        ui->pbCoffee->setEnabled(false);
-        ui->pbTea->setEnabled(false);
-        ui->pbMilk->setEnabled(false);
-    }
     ui->lcdNumber->display(money);
+    
+    ui->pbCoffee->setEnabled(this->money >= 100);
+    ui->pbTea->setEnabled(this->money >= 150);
+    ui->pbMilk->setEnabled(this->money >= 200);
+
 }
 
 void Widget::on_pb10_clicked()
